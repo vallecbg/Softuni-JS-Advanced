@@ -13,6 +13,10 @@ describe("Test", function () {
         expect(book.books).to.deep.equal([]);
         expect(book.workers).to.deep.equal([]);
     })
+
+    it("Should have instance type", function () {
+        expect(BookStore.prototype).to.have.property('workers');
+    })
 })
 
 describe("Constructor tests", function () {
@@ -25,11 +29,12 @@ describe("Constructor tests", function () {
     it("StockBooks tests", function () {
         let store = new BookStore("Store");
 
-        store.stockBooks([]);
-        expect(store.books).to.deep.equal([]);
-        expect(store.books).to.have.length(0);
+        let booksToCompare = store.stockBooks(['Inferno-Dan Braun', 'Harry Potter-J.Rowling', 'Uncle Toms Cabin-Hariet Stow', 'The Jungle-Upton Sinclear']);
 
-        store.stockBooks(['Inferno-Dan Braun', 'Harry Potter-J.Rowling', 'Uncle Toms Cabin-Hariet Stow', 'The Jungle-Upton Sinclear']);
+        expect(booksToCompare).to.be.deep.equal([ { title: 'Inferno', author: 'Dan Braun' },
+        { title: 'Harry Potter', author: 'J.Rowling' },
+        { title: 'Uncle Toms Cabin', author: 'Hariet Stow' },
+        { title: 'The Jungle', author: 'Upton Sinclear' } ])
 
         expect(store.books).to.deep.equal([{
                 title: 'Inferno',
