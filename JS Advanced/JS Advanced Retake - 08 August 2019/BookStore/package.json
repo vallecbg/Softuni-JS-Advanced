@@ -1,0 +1,15 @@
+{
+  "name": "bookstore",
+  "version": "1.0.0",
+  "description": "",
+  "main": "BookStore.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.2"
+  }
+}
