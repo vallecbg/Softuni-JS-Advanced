@@ -55,7 +55,7 @@ table button:hover{
     text-decoration: underline;
 }
 
-button#loadBooks{
+button#load-books{
     margin: 0 auto;
     display:block;
     padding:1%;
