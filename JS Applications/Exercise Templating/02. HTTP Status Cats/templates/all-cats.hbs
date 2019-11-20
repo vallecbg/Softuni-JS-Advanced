@@ -1,0 +1,15 @@
+<ul>
+    {{#each cats}}
+    <li>
+        <img src="http://127.0.0.1:5500/02.%20HTTP%20Status%20Cats/images/{{imageLocation}}.jpg" width="250" height="250"
+            alt="Card image cap">
+        <div class="info">
+            <button class="showBtn" onclick="toggle(this)">Show status code</button>
+            <div class="status" style="display: none" id="{{id}}">
+                <h4>Status Code: {{statusCode}}</h4>
+                <p>{{statusMessage}}</p>
+            </div>
+        </div>
+    </li>
+    {{/each}}
+</ul>
