@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>UniEnt</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css" />
+  <link rel="stylesheet" href="./styles/styles.css" />
+</head>
+
+<body>
+
+  <nav class="site-header sticky-top py-1">
+    <div class="container d-flex flex-column flex-md-row justify-content-between">
+      <a class="py-2" href="#">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+          stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mx-auto" role="img"
+          viewBox="0 0 24 24" focusable="false">
+          <title>UniEnt Home</title>
+          <circle cx="12" cy="12" r="10"></circle>
+          <path
+            d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94">
+          </path>
+        </svg>
+      </a>
+      <a class="py-2 d-none d-md-inline-block" href="#">Organize Event</a>
+      <a class="py-2 d-none d-md-inline-block" href="#">USERNAME</a>
+      <a class="py-2 d-none d-md-inline-block" href="#">Logout</a>
+      <a class="py-2 d-none d-md-inline-block" href="#">Login</a>
+    </div>
+  </nav>
+
+  <div id="notifications">
+      <div id="successBox" class="alert alert-success" role="alert">{Success Message...}</div>
+      <div id="loadingBox" class="alert alert-info" role="alert">Loading...</div>
+      <div id="errorBox" class="alert alert-danger" role="alert">{Error Message...}</div>
+  </div>
+
+  <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
+    <div style=" padding-left: 7%; padding-top:3%;" class="col-md-7">
+      <h2 class="featurette-heading">The events that <span class="text-muted">will blow your mind!</span></h2>
+      <p class="lead">Join our community.</p>
+      <p style="padding-left:5%" class="lead">Organizie an event.</p>
+      <p style="padding-left:10%" class="lead">Gathered as many people as possible for one purpose.</p>
+      <p style="padding-left:15%" class="lead">Learn!</p>
+      <p style="padding-left:20%" class="lead">Share!</p>
+      <p style="padding-left:25%" class="lead">Enjoy the life!</p>
+    </div>
+    <div class="col-md-5">
+      <img class="home-event-picture" src="./images/events.png" />
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div id="fouronefour">
+          <img class="no-found-picture" src="./images/404face.png" />
+        </div>
+        <div class="error-template">
+          <h1>
+            Oops!</h1>
+          <h2>
+            404 Not Found</h2>
+          <div class="error-details">
+            UniEnt cannot find any event...
+          </div>
+          <div class="actions">
+            <a href="#" class="btn btn-dark btn-lg">Create the first one? </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="eventsHolder">
+    <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden eventPlaceholder">
+      <div class="my-3 p-3">
+        <h2 class="display-5">LED ZEPPELIN Concert</h2>
+      </div>
+      <div>
+        <div class="img"><img class="eventPicture"
+            src="https://www.rollingstone.com/wp-content/uploads/2018/06/led-zeppelin-iv-album-release-review-35c87652-3510-4318-9145-25a24db837f5.jpg?crop=900:600&width=440" />
+        </div>
+        <a href="#" class="eventDetails">More</a>
+      </div>
+    </div>
+
+    <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden eventPlaceholder">
+      <div class="my-3 p-3">
+        <h2 class="display-5">Techno Party</h2>
+      </div>
+      <div>
+        <div class="img"><img class="eventPicture"
+            src="https://technomood.org/wp-content/uploads/2017/12/Awakenings_principal_recadr%C3%A9-webayrton.jpg" />
+        </div>
+        <a href="#" class="eventDetails">More</a>
+      </div>
+    </div>
+  </div>
+
+  <form action="#" method="post">
+    <div class="text-center mb-4">
+      <h1 class="h3 mb-3 font-weight-normal">Organize Event</h1>
+      <p>Fill up the following information!</p>
+    </div>
+
+    <div class="form-label-group">
+      <input type="text" id="inputEventName" name="name" class="form-control" placeholder="Event" required=""
+        autofocus="">
+      <label for="inputEventName">Event</label>
+    </div>
+
+    <div class="form-label-group">
+      <input type="text" id="inpuEventDate" name="dateTime" class="form-control" placeholder="Date" required="">
+      <label for="inpuEventDate">Date</label>
+    </div>
+
+    <div class="form-label-group">
+      <textarea type="text" id="inputEventDescription" name="description" class="form-control" placeholder="Description"
+        required=""></textarea>
+      <label for="inputEventDescription">Description</label>
+    </div>
+
+    <div class="form-label-group">
+      <input type="text" id="inputEventImage" name="imageURL" class="form-control" placeholder="Image" required=""
+        autofocus="">
+      <label for="inputEventImage">Image</label>
+    </div>
+
+    <button class="btn btn-lg btn-dark btn-block" type="submit">Organize it</button>
+
+    <p class="mt-5 mb-3 text-muted text-center">© UniEnt - 2019.</p>
+
+  </form>
+
+  <form action="#" method="post">
+
+    <div class="text-center mb-4">
+      <h1 class="h3 mb-3 font-weight-normal">Edit Event</h1>
+    </div>
+
+    <div class="form-label-group">
+      <input type="text" id="inputEventName" name="name" class="form-control" placeholder="Event" required=""
+        autofocus="" value="">
+      <label for="inputEventName">Event</label>
+    </div>
+
+    <div class="form-label-group">
+      <input type="text" id="inpuEventDate" name="dateTime" class="form-control" placeholder="Date" required=""
+        value="">
+      <label for="inpuEventDate">Date</label>
+    </div>
+
+    <div class="form-label-group">
+      <textarea type="text" id="inputEventDescription" name="description" class="form-control" placeholder="Description"
+        required=""></textarea>
+      <label for="inputEventDescription">Description</label>
+    </div>
+    <div class="form-label-group">
+      <input type="text" id="inputEventImage" name="imageURL" class="form-control" placeholder="Image" required=""
+        autofocus="" value="">
+      <label for="inputEventImage">Image</label>
+    </div>
+    <div style="display: none">
+      <input name="organizer" value="" />
+      <input name="peopleInterestedIn" value="" />
+    </div>
+
+    <button class="btn btn-lg btn-dark btn-block" type="submit">Edit it</button>
+    <p class="mt-5 mb-3 text-muted text-center">© UniEnt - 2019.</p>
+  </form>
+
+  <div class="row event-details">
+    <div class="col-md-12 text-center overflow-hidden">
+
+      <img class="details-img"
+        src="https://www.rollingstone.com/wp-content/uploads/2018/06/led-zeppelin-iv-album-release-review-35c87652-3510-4318-9145-25a24db837f5.jpg?crop=900:600&width=440" />
+      <div class="my-3 p-3">
+        <h2 class="display-5">LED ZEPPELIN Concert</h2>
+        <p class="infoType">Description:</p>
+        <p class="event-description">Led Zeppelin were an Eglish rock band formed in London in 1968. The group consisted
+          of guitarist Jimmy Page, singer Robert Plant, bassist/keyboardist John Paul Jones, and drummer John Bonham.
+          Along with Black Sabbath and Deep Purple, the band's heavy, guuitar-driven sound has led them to be cited as
+          one of the progenitors of heavy metal. Their style drew from a wide variety of inifluences, including blues,
+          psychedelia, and folk music.</p>
+        <p class="infoType">Date: <small>30 July</small></p>
+        <p class="infoType">Peope interested in: <small>9</small></p>
+        <p class="infoType">Organizer: <small>PAKO</small></p>
+      </div>
+      <a href="#" class="btn btn-primary btn-lg">Edit the event</a>
+      <a href="#" class="btn btn-danger btn-lg">Close the event</a>
+      <a href="#" class="btn btn-info btn-lg">Join the event</a>
+    </div>
+  </div>
+
+  <form action="#" method="post">
+
+    <div class="text-center mb-4">
+      <h1 class="h3 mb-3 font-weight-normal">Sign-In</h1>
+      <p>You are on one step of awesome events!</p>
+    </div>
+
+    <div class="form-label-group">
+      <input type="text" id="inputUsername" name="username" class="form-control" placeholder="Username" required=""
+        autofocus="">
+      <label for="inputUsername">Username</label>
+    </div>
+
+    <div class="form-label-group">
+      <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required="">
+      <label for="inputPassword">Password</label>
+    </div>
+
+    <button class="btn btn-lg btn-dark btn-block" type="submit">Sign In</button>
+
+    <div class="text-center mb-4">
+      <p class="alreadyUser"> Don't have account? Then just
+        <a href="#">Sign-Up</a>!
+      </p>
+    </div>
+
+    <p class="mt-5 mb-3 text-muted text-center">© UniEnt - 2019.</p>
+
+  </form>
+
+  <form action="#" method="post">
+
+    <div class="text-center mb-4">
+      <h1 class="h3 mb-3 font-weight-normal">Sign-Up</h1>
+      <p>Register yourself once and create/join awesome events!</p>
+    </div>
+
+    <div class="form-label-group">
+      <input type="text" id="inputUsername" name="username" class="form-control" placeholder="Username" required=""
+        autofocus="">
+      <label for="inputUsername">Username</label>
+    </div>
+
+    <div class="form-label-group">
+      <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required="">
+      <label for="inputPassword">Password</label>
+    </div>
+
+    <div class="form-label-group">
+      <input type="password" id="inputRePassword" name="rePassword" class="form-control" placeholder="Re-Password"
+        required="">
+      <label for="inputRePassword">Re-Password</label>
+    </div>
+
+    <button class="btn btn-lg btn-dark btn-block" type="submit">Sign Up</button>
+
+    <div class="text-center mb-4">
+      <p class="alreadyUser"> Already have account? Then just
+        <a href="#">Sign-In</a>!
+      </p>
+    </div>
+
+    <p class="mt-5 mb-3 text-muted text-center">© UniEnt - 2019.</p>
+
+  </form>
+
+  <div class="col-md-6 text-center col-lg">
+    <img class="profile-img" src="./images/user.png" />
+    <div class="profile-info">
+      <p>Username: <small>PAKO</small></p>
+      <p class="infoType">Organizer of 2 events.</p>
+      <p>LED ZEPPELIN Convert</p>
+      <p>Techno Party</p>
+      <p>No events</p>
+    </div>
+  </div>
+
+  <footer class="container py-5">
+    <div class="row text-center">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+        stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mb-2" role="i  mg"
+        viewBox="0 0 24 24" focusable="false">
+        <title>Product</title>
+        <circle cx="12" cy="12" r="10"></circle>
+        <path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94">
+        </path>
+      </svg>
+      <p class="d-block mb-3 text-muted">© UniEnt - 2019. One application proudly built in BULGARIA!</p>
+    </div>
+  </footer>
+
+</body>
+
+<!-- Libraries -->
+<script src="./node_modules/jquery/dist/jquery.js"></script>
+<script src="./node_modules/bootstrap/dist/js/bootstrap.js"></script>
+
+</html>
