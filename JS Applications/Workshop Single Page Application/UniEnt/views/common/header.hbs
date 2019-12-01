@@ -13,7 +13,7 @@
         </a>
         {{#if isAuth}}
         <a class="py-2 d-none d-md-inline-block" href="/organize">Organize Event</a>
-        <a class="py-2 d-none d-md-inline-block" href="/profile">{{username}}</a>
+        <a class="py-2 d-none d-md-inline-block" href="/profile/{{_id}}">{{username}}</a>
         <a class="py-2 d-none d-md-inline-block" href="/logout">Logout</a>
         {{else}}
         <a class="py-2 d-none d-md-inline-block" href="/login">Login</a>

@@ -12,9 +12,14 @@ export default function Router(app){
     app.get("/login", userController.renderLogin);
     app.post("/login", userController.login);
     app.get("/logout", userController.logout);
+    app.get("/profile/:id", userController.profile);
 
     //Events Controller
     app.get("/organize", eventController.getOrganize);
     app.post("/organize", eventController.postOrganize);
     app.get("/details/:id", eventController.getDetails);
+    app.get("/edit/:id", eventController.getEdit);
+    app.post("/edit/:id", eventController.postEdit);
+    app.get("/join/:id", eventController.join);
+    app.get("/delete/:id", eventController.delete);
 }

@@ -4,7 +4,8 @@ import {
     setSessionInfo,
     displayError,
     displaySuccess,
-    displayLoading
+    displayLoading,
+    setHeaderInfo
 } from '../scripts/helpers.js';
 import {
     get,
@@ -39,7 +40,7 @@ export const userController = {
                 .then(userInfo => {
                     setSessionInfo(userInfo);
                     
-                    displaySuccess("Success");
+                    displaySuccess("Registered successfully");
                     ctx.redirect("/");
                 })
                 .catch(() => {
@@ -72,7 +73,7 @@ export const userController = {
                     setSessionInfo(userInfo);
                     
                     ctx.redirect("/");
-                    displaySuccess("Success");
+                    displaySuccess("Signed in successfully");
                 })
                 .catch(() => {
                     displayError("Something went wrong with login!")
@@ -85,11 +86,30 @@ export const userController = {
         post("user", "_logout", {}, "Kinvey")
             .then(() => {
                 sessionStorage.clear();
-                displaySuccess("Success");
+                displaySuccess("Log out successfully");
                 ctx.redirect("/");
             })
             .catch(() => {
                 displayError("Something went wrong with logout!")
             })
     },
+
+    profile: function(ctx) {
+        const id = ctx.params.id;
+        getSessionInfo(ctx);
+        setHeaderInfo(ctx);
+        const partials = loadAllPartials({});
+
+        get("appdata", `events?query={"_acl.creator":"${id}"}`, "Kinvey")
+            .then(events => {
+                ctx.events = events;
+                ctx.eventsCount = events.length;
+
+                this.loadPartials(partials)
+                    .partial("../views/user/profile.hbs")
+            })
+            .catch(() => {
+                displayError("Something went wrong with profile view!")
+            })
+    }
 };
