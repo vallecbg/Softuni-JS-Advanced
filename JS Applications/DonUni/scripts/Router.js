@@ -19,5 +19,5 @@ export default function Router(app){
     app.get("/dashboard", causeController.getDashboard);
     app.get("/details/:id", causeController.getDetails);
     app.post("/donate/:id", causeController.donate);
-    app.get("/close/:id", causeController.close);
+    app.get("/delete/:id", causeController.delete);
 }

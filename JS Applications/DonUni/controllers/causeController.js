@@ -127,12 +127,20 @@ export const causeController = {
         }
     },
 
-    close: function (ctx) {
-        // const id = ctx.params.id;
-        // getSessionInfo(ctx);
-        // setHeaderInfo(ctx);
-        // const partials = loadAllPartials({});
-        // const username = sessionStorage.getItem("username");
-        // displayLoading();
+    delete: function (ctx) {
+        const id = ctx.params.id;
+        getSessionInfo(ctx);
+        setHeaderInfo(ctx);
+        const partials = loadAllPartials({});
+        displayLoading();
+
+        del("appdata", `causes/${id}`, "Kinvey")
+            .then(() => {
+                displaySuccess("Successfully deleted!")
+                ctx.redirect(`/`);
+            })
+            .catch(() => {
+                displayError("Something went wrong with delete!")
+            })
     }
 }

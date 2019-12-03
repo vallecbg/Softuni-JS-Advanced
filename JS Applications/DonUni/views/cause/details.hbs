@@ -34,7 +34,7 @@
             </div>
             <div class="modal-footer">
                 {{#if cause.isCreator}}
-                <a href="/close/{{cause._id}}" class="btn btn-danger">Close the cause</a>
+                <a href="/delete/{{cause._id}}" class="btn btn-danger">Close the cause</a>
                 {{/if}}
                 <form method="POST" action="/donate/{{cause._id}}">
                     <label class="grey-text font-weight-light">My donation: </label>
